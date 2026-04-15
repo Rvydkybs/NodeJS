@@ -43,12 +43,20 @@
 // console.log(`${greeting} ${user}`); The answer is correct because the 'process' object and its 'argv' property are used in Node.js to retrieve command-line arguments, allowing you to process user inputs passed through the terminal.
 
 //working with standard input and output
-process.stdout.write("Hello, what is your name? ");
-process.stdin.on("data", (data) => { //Using 'process.stdin.on('data', ...)' allows the Node.js application to listen for incoming data events and process the input asynchronously, thus keeping the process running and able to accept additional inputs.
-    console.log(`Hello, ${data.toString().trim()}!`);
-    process.exit();// exit the process
-});
+// process.stdout.write("Hello, what is your name? ");
+// process.stdin.on("data", (data) => { //Using 'process.stdin.on('data', ...)' allows the Node.js application to listen for incoming data events and process the input asynchronously, thus keeping the process running and able to accept additional inputs.
+//     console.log(`Hello, ${data.toString().trim()}!`);
+//     process.exit();// exit the process
+// });
 //Using process.stdout.clearLine() and process.stdout.cursorTo() allows you to clear the current line in the console and move the cursor to the beginning to overwrite the existing message with the updated progress.
-process.on("exit", () => {// this is a event listener for the exit event
-    console.log("Thank you for your time!");
-});
+// process.on("exit", () => {// this is a event listener for the exit event
+//     console.log("Thank you for your time!");
+// });
+
+//importing a module from another file
+const myModule=require("./nodeModules");
+console.log(myModule.getCount());
+myModule.inc();
+console.log(myModule.getCount());
+myModule.dec();
+console.log(myModule.getCount());
