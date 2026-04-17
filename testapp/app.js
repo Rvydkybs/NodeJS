@@ -41,11 +41,33 @@
 // module.exports = app;
 
 import express from 'express';
+import data  from './data/mockData.json' with { type: 'json' };//if you don't import it with type json it will give you an error
+
 const app = express();
-const port = 3000;//it can change 
-app.get('/', (req, res) => {
-    res.send('Hello World');
+const port = 3001;//it can change as you want
+//using the public folder to serve static files
+app.use(express.static('public/images'));//if type in the adress /img1.png it will be display our image
+app.get('/', (req, res) => {//in this route this data will be recieved
+    res.json(data);//send data to the client in json format
+});
+app.post('/create', (req, res) => {
+    const newUser = req.body;
+    // data.push(newUser);
+    res.send("this is a post request that i created");
+});
+app.put('/update', (req, res) => {
+    const updatedUser = req.body;
+    // data.push(updatedUser);
+    res.send("this is a put request");
+});
+app.delete('/delete', (req, res) => {
+    const deletedUser = req.body;
+    // data.push(deletedUser);
+    res.json("this is a delete request");
 });
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
+    console.log(data);
 });
+//adding data for server
+//for creating mock data free: https://www.mockaroo.com/
