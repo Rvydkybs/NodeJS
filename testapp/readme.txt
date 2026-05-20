@@ -13,5 +13,7 @@ nodemon --exprimental-json-modules --exec babel-node app.js
 nodemon watchs for changes in application and when something changes,
     it's restarts the application, so we do not need to stop at restart in the terminal.
 
+//debug command
+DEBUG=express:* node --experimental-json-modules app.js
 
 

@@ -4,7 +4,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon --exprimental-json-modules --exec babel-node app.js"
+    "start": "nodemon --exprimental-json-modules --exec babel-node app.js",
+    "debug": "DEBUG=express:* nodemon --exprimental-json-modules --exec babel-node app.js"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
